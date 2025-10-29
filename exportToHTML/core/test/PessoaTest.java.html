@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>PessoaTest.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+PessoaTest.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">core</span><span class="s2">.</span><span class="s1">test</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">base</span><span class="s2">.</span><span class="s1">enumeration</span><span class="s2">.</span><span class="s1">Funcionalidade</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">base</span><span class="s2">.</span><span class="s1">exception</span><span class="s2">.</span><span class="s1">PessoaException</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">core</span><span class="s2">.</span><span class="s1">service</span><span class="s2">.</span><span class="s1">PessoaService</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">PessoaTest </span><span class="s0">implements </span><span class="s1">Test </span><span class="s2">{</span>
+
+    <span class="s3">// Atributos</span>
+    <span class="s0">private </span><span class="s1">PessoaService pessoaService</span><span class="s2">;</span>
+
+    <span class="s3">// Construtor</span>
+    <span class="s0">public </span><span class="s1">PessoaTest</span><span class="s2">(</span><span class="s1">PessoaService pessoaService</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">pessoaService </span><span class="s2">= </span><span class="s1">pessoaService</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">// Métodos de testes</span>
+
+    <span class="s0">public </span><span class="s1">String testar</span><span class="s2">(</span><span class="s1">Funcionalidade funcionalidade</span><span class="s2">) </span><span class="s0">throws </span><span class="s1">PessoaException </span><span class="s2">{</span>
+        <span class="s0">switch </span><span class="s2">(</span><span class="s1">funcionalidade</span><span class="s2">) {</span>
+            <span class="s0">case </span><span class="s1">LISTAR</span><span class="s2">:</span>
+                <span class="s0">return this</span><span class="s2">.</span><span class="s1">listar</span><span class="s2">();</span>
+            <span class="s0">case </span><span class="s1">CADASTRAR</span><span class="s2">:</span>
+                <span class="s0">return this</span><span class="s2">.</span><span class="s1">cadastrar</span><span class="s2">();</span>
+            <span class="s0">case </span><span class="s1">ALTERAR</span><span class="s2">:</span>
+                <span class="s0">return this</span><span class="s2">.</span><span class="s1">alterar</span><span class="s2">();</span>
+            <span class="s0">case </span><span class="s1">EXCLUIR</span><span class="s2">:</span>
+                <span class="s0">return this</span><span class="s2">.</span><span class="s1">excluir</span><span class="s2">();</span>
+            <span class="s0">default</span><span class="s2">:</span>
+                <span class="s0">return null</span><span class="s2">;</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String listar</span><span class="s2">() </span><span class="s0">throws </span><span class="s1">PessoaException </span><span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">pessoaService</span><span class="s2">.</span><span class="s1">listar</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String cadastrar</span><span class="s2">() </span><span class="s0">throws </span><span class="s1">PessoaException </span><span class="s2">{</span>
+        <span class="s3">// Dados para cadastro</span>
+        <span class="s1">String nomeCompleto </span><span class="s2">= </span><span class="s4">&quot;João Luiz da Silva&quot;</span><span class="s2">;</span>
+        <span class="s1">String dataNascimento </span><span class="s2">= </span><span class="s4">&quot;01/02/1990&quot;</span><span class="s2">;</span>
+        <span class="s1">String documento </span><span class="s2">= </span><span class="s4">&quot;121.341.560-82&quot;</span><span class="s2">;</span>
+        <span class="s1">String pais </span><span class="s2">= </span><span class="s4">&quot;Brasil&quot;</span><span class="s2">;</span>
+        <span class="s1">String estado </span><span class="s2">= </span><span class="s4">&quot;SC&quot;</span><span class="s2">;</span>
+        <span class="s1">String cidade </span><span class="s2">= </span><span class="s4">&quot;Tubarão&quot;</span><span class="s2">;</span>
+
+        <span class="s0">return </span><span class="s1">pessoaService</span><span class="s2">.</span><span class="s1">cadastrar</span><span class="s2">(</span><span class="s1">nomeCompleto</span><span class="s2">, </span><span class="s1">dataNascimento</span><span class="s2">, </span><span class="s1">documento</span><span class="s2">, </span><span class="s1">pais</span><span class="s2">, </span><span class="s1">estado</span><span class="s2">, </span><span class="s1">cidade</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String alterar</span><span class="s2">() </span><span class="s0">throws </span><span class="s1">PessoaException </span><span class="s2">{</span>
+        <span class="s3">// Dados para alteração</span>
+        <span class="s1">String id </span><span class="s2">= </span><span class="s4">&quot;1&quot;</span><span class="s2">;</span>
+        <span class="s1">String nomeCompleto </span><span class="s2">= </span><span class="s4">&quot;João Luiz da Silva Pereira&quot;</span><span class="s2">;</span>
+        <span class="s1">String dataNascimento </span><span class="s2">= </span><span class="s4">&quot;01/02/1989&quot;</span><span class="s2">;</span>
+        <span class="s1">String documento </span><span class="s2">= </span><span class="s4">&quot;670.022.930-87&quot;</span><span class="s2">;</span>
+        <span class="s1">String pais </span><span class="s2">= </span><span class="s4">&quot;Argentina&quot;</span><span class="s2">;</span>
+        <span class="s1">String estado </span><span class="s2">= </span><span class="s4">&quot;Santa Fe&quot;</span><span class="s2">;</span>
+        <span class="s1">String cidade </span><span class="s2">= </span><span class="s4">&quot;Rosário&quot;</span><span class="s2">;</span>
+
+        <span class="s0">return </span><span class="s1">pessoaService</span><span class="s2">.</span><span class="s1">alterar</span><span class="s2">(</span><span class="s1">id</span><span class="s2">, </span><span class="s1">nomeCompleto</span><span class="s2">, </span><span class="s1">dataNascimento</span><span class="s2">, </span><span class="s1">documento</span><span class="s2">, </span><span class="s1">pais</span><span class="s2">, </span><span class="s1">estado</span><span class="s2">, </span><span class="s1">cidade</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String excluir</span><span class="s2">() </span><span class="s0">throws </span><span class="s1">PessoaException </span><span class="s2">{</span>
+        <span class="s3">// Dados para exclusão</span>
+        <span class="s1">String id </span><span class="s2">= </span><span class="s4">&quot;10&quot;</span><span class="s2">;</span>
+
+        <span class="s0">return </span><span class="s1">pessoaService</span><span class="s2">.</span><span class="s1">excluir</span><span class="s2">(</span><span class="s1">id</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
