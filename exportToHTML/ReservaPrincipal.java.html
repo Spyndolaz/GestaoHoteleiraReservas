@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>ReservaPrincipal.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ReservaPrincipal.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">base</span><span class="s2">.</span><span class="s1">exception</span><span class="s2">.</span><span class="s1">AcomodacaoException</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">base</span><span class="s2">.</span><span class="s1">exception</span><span class="s2">.</span><span class="s1">ClienteException</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">base</span><span class="s2">.</span><span class="s1">exception</span><span class="s2">.</span><span class="s1">ReservaException</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">core</span><span class="s2">.</span><span class="s1">controller</span><span class="s2">.</span><span class="s1">ReservaController</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">core</span><span class="s2">.</span><span class="s1">dao</span><span class="s2">.</span><span class="s1">ReservaDAO</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">core</span><span class="s2">.</span><span class="s1">service</span><span class="s2">.</span><span class="s1">ReservaService</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">core</span><span class="s2">.</span><span class="s1">test</span><span class="s2">.</span><span class="s1">ReservaTest</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">ReservaPrincipal </span><span class="s2">{</span>
+
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) </span><span class="s0">throws </span><span class="s1">AcomodacaoException</span><span class="s2">, </span><span class="s1">ClienteException</span><span class="s2">, </span><span class="s1">ReservaException </span><span class="s2">{</span>
+        <span class="s3">// Inicialização de objetos</span>
+        <span class="s1">ReservaDAO reservaDAO </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ReservaDAO</span><span class="s2">();</span>
+        <span class="s1">ReservaService reservaService </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ReservaService</span><span class="s2">(</span><span class="s1">reservaDAO</span><span class="s2">);</span>
+        <span class="s1">ReservaTest reservaTest </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ReservaTest</span><span class="s2">(</span><span class="s1">reservaService</span><span class="s2">);</span>
+        <span class="s1">ReservaController reservaController </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ReservaController</span><span class="s2">(</span><span class="s1">reservaTest</span><span class="s2">);</span>
+        <span class="s1">reservaController</span><span class="s2">.</span><span class="s1">iniciar</span><span class="s2">();</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
